@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>MikBank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4f6ef7, #6a8cff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  background: #ffffff;
+  width: 360px;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #4f6ef7;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #e5e7eb;
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+  <h1>MikBank</h1>
+
+  <!-- ГЛАВНАЯ -->
+  <div id="home">
+    <button onclick="openLogin()">Войти</button>
+    <button class="secondary" onclick="openRegister()">Регистрация</button>
+  </div>
+
+  <!-- ВХОД -->
+  <div id="login" class="hidden">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Пароль">
+    <button onclick="back()">Войти</button>
+    <button class="secondary" onclick="back()">Назад</button>
+  </div>
+
+  <!-- РЕГИСТРАЦИЯ -->
+  <div id="register" class="hidden">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Пароль">
+    <button onclick="back()">Создать аккаунт</button>
+    <button class="secondary" onclick="back()">Назад</button>
+  </div>
+</div>
+
+<script>
+function hideAll() {
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('register').classList.add('hidden');
+}
+
+function openLogin() {
+  hideAll();
+  document.getElementById('login').classList.remove('hidden');
+}
+
+function openRegister() {
+  hideAll();
+  document.getElementById('register').classList.remove('hidden');
+}
+
+function back() {
+  hideAll();
+  document.getElementById('home').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
